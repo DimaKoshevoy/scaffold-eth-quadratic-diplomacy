@@ -122,7 +122,7 @@ const web3Modal = new Web3Modal({
 
 
 function App(props) {
-  const mainnetProvider = scaffoldEthProvider && scaffoldEthProvider._network ? scaffoldEthProvider : mainnetInfura;
+  const mainnetProvider = mainnetInfura;
 
   const [injectedProvider, setInjectedProvider] = useState();
   const [address, setAddress] = useState();
@@ -196,10 +196,10 @@ function App(props) {
   ]);
 
   // keep track of a variable from the contract in the local React state:
-  const purpose = useContractReader(readContracts, "YourContract", "purpose");
+  // const purpose = useContractReader(readContracts, "YourContract", "purpose");
 
   // 📟 Listen for broadcast events
-  const setPurposeEvents = useEventListener(readContracts, "YourContract", "SetPurpose", localProvider, 1);
+  // const setPurposeEvents = useEventListener(readContracts, "YourContract", "SetPurpose", localProvider, 1);
 
   /*
   const addressFromENS = useResolveName(mainnetProvider, "austingriffith.eth");
@@ -388,7 +388,7 @@ function App(props) {
               }}
               to="/"
             >
-              YourContract
+              Quadratic Diplomacy
             </Link>
           </Menu.Item>
           <Menu.Item key="/hints">
@@ -442,7 +442,7 @@ function App(props) {
             */}
 
             <Contract
-              name="YourContract"
+              name="QuadraticDiplomacy"
               signer={userSigner}
               provider={localProvider}
               address={address}
@@ -457,21 +457,21 @@ function App(props) {
               price={price}
             />
           </Route>
-          <Route path="/exampleui">
-            <ExampleUI
-              address={address}
-              userSigner={userSigner}
-              mainnetProvider={mainnetProvider}
-              localProvider={localProvider}
-              yourLocalBalance={yourLocalBalance}
-              price={price}
-              tx={tx}
-              writeContracts={writeContracts}
-              readContracts={readContracts}
-              purpose={purpose}
-              setPurposeEvents={setPurposeEvents}
-            />
-          </Route>
+          {/*<Route path="/exampleui">*/}
+          {/*  <ExampleUI*/}
+          {/*    address={address}*/}
+          {/*    userSigner={userSigner}*/}
+          {/*    mainnetProvider={mainnetProvider}*/}
+          {/*    localProvider={localProvider}*/}
+          {/*    yourLocalBalance={yourLocalBalance}*/}
+          {/*    price={price}*/}
+          {/*    tx={tx}*/}
+          {/*    writeContracts={writeContracts}*/}
+          {/*    readContracts={readContracts}*/}
+          {/*    purpose={purpose}*/}
+          {/*    setPurposeEvents={setPurposeEvents}*/}
+          {/*  />*/}
+          {/*</Route>*/}
           <Route path="/mainnetdai">
             <Contract
               name="DAI"
