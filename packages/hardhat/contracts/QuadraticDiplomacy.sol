@@ -38,9 +38,6 @@ contract QuadraticDiplomacy {
         _;
     }
 
-    function createVoting(string memory _name, uint _deadline, VotingTypes _votingType, Member[] memory _members) public returns (uint votingId) {
-        totalVotings += 1;
-
     function createVoting(string memory _title, uint _deadline, VotingTypes _votingType, Member[] memory _members) public {
         uint votingId = totalVotings + 1;
         Voting storage voting = votings[votingId];
